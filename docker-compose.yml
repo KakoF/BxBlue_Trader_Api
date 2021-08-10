@@ -1,15 +1,14 @@
 version: '3'
 
 services:
-  postgre:
-    container_name: 'postgres_pokemon'
-    image: postgres
+  api:
+    container_name: 'poke_trade_api'
+    image: api_poke
     restart: always
     environment:
-      POSTGRES_PASSWORD: pokemon_password
-      POSTGRES_USER: pokemon_user
-      POSTGRES_DB: PokemonBase
+      - PORT=5000
     ports:
-      - '5499:5432'
-    expose:
-      - '5499'
+      - '5000:5000'
+    build:
+      context: .
+      dockerfile: Dockerfile

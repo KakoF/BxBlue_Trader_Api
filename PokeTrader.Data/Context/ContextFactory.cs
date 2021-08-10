@@ -13,8 +13,6 @@ namespace PokeTrader.Data.Context
         public MyContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
-            //var connectionString = "Server=localhost;Port=5499;Database=PokemonBase;User Id=pokemon_user;Password=pokemon_password;";
-            //optionsBuilder.UseNpgsql(connectionString);
             return new MyContext(optionsBuilder.Options);
 
         }

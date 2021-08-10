@@ -31,6 +31,12 @@ namespace PokeTrader.Api
         {
             ConfigureService.ConfigureDependenciesService(services);
             ConfigureRepository.ConfigureDependenciesRepository(services, Configuration);
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                }));
             var config = new AutoMapper.MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new DtoToModelProfile());
@@ -63,6 +69,7 @@ namespace PokeTrader.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors("MyPolicy");
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
