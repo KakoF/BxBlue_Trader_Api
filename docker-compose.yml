@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  postgre:
+    container_name: 'postgres_pokemon'
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pokemon_password
+      POSTGRES_USER: pokemon_user
+      POSTGRES_DB: PokemonBase
+    ports:
+      - '5499:5432'
+    expose:
+      - '5499'
