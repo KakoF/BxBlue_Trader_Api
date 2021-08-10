@@ -17,7 +17,7 @@ namespace PokeTrader.Api.Controllers
             _service = service;
         }
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery()] int? offset, int? limit)
+        public async Task<IActionResult> Get([FromQuery()] int? offset = 20, int? limit = 0)
         {
             var result = await _service.Get(offset.Value, limit.Value);
             return Ok(result);
