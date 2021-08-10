@@ -35,24 +35,26 @@ namespace PokeTrader.Service.Services
             try
             {
                 var model = _mapper.Map<ExchangeModel>(exchange);
-                //foreach ((PokemonModel pokemon, Int32 i) in model.TraderOne.Pokemons.Select((value, i) => (value, i)))
                 foreach (var pokemon in model.TraderOne.Pokemons)
                 {
                     var get = await _service.Get(pokemon.PokemonId);
                     pokemon.Name = get.Name;
                     pokemon.BaseExperience = get.BaseExperience;
                     pokemon.Url = get.Sprites.BackDefault;
+                    pokemon.CreateAt = DateTime.UtcNow;
                 }
-                //foreach ((PokemonModel pokemon, Int32 i) in model.TraderTwo.Pokemons.Select((value, i) => (value, i)))
                 foreach (var pokemon in model.TraderTwo.Pokemons)
                 {
                     var get = await _service.Get(pokemon.PokemonId);
                     pokemon.Name = get.Name;
                     pokemon.BaseExperience = get.BaseExperience;
                     pokemon.Url = get.Sprites.BackDefault;
+                    pokemon.CreateAt = DateTime.UtcNow;
                 }
                 CalcularCriterio(model.TraderOne.Pokemons.Sum(x => x.BaseExperience), model.TraderTwo.Pokemons.Sum(x => x.BaseExperience));
                 var entity = _mapper.Map<ExchangeEntity>(model);
+                entity.TraderOne.CreateAt =  DateTime.UtcNow;
+                entity.TraderTwo.CreateAt =  DateTime.UtcNow;
                 var result = await _repository.InsertAsync(entity);
                 _uof.Commmit();
                 return _mapper.Map<ExchangeResponseDto>(result);

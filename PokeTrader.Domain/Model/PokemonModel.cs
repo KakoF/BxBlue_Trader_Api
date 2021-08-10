@@ -11,5 +11,8 @@ namespace PokeTrader.Domain.Model
         public int BaseExperience { get; set; }
         public string Url { get; set; }
         public int TraderId { get; set; }
+
+        public DateTime? CreateAt { get; set; }
+        public DateTime? UpdateAt { get; set; }
     }
 }
