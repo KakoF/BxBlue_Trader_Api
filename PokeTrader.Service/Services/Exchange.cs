@@ -4,6 +4,7 @@ using PokeTrader.Domain.Dto.Exchange;
 using PokeTrader.Domain.Entities;
 using PokeTrader.Domain.Interfaces;
 using PokeTrader.Domain.Model;
+using PokeTrader.Domain.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,16 @@ namespace PokeTrader.Service.Services
     public class Exchange : IExchange
     {
         private readonly IRepository<ExchangeEntity> _repository;
+        private readonly IExchangeRepository _repositoryExchange;
         private readonly IUnitOfWork _uof;
         private readonly IMapper _mapper;
         private readonly IPokemonService _service;
 
-        public Exchange(IRepository<ExchangeEntity> repository, IMapper mapper, IUnitOfWork uof, IPokemonService service)
+        public Exchange(IRepository<ExchangeEntity> repository, IExchangeRepository repositoryExchange, IMapper mapper, IUnitOfWork uof, IPokemonService service)
         {
             _uof = uof;
             _repository = repository;
+            _repositoryExchange = repositoryExchange;
             _mapper = mapper;
             _service = service;
         }
@@ -72,7 +75,7 @@ namespace PokeTrader.Service.Services
 
         public async Task<IEnumerable<ExchangeResponseDto>> Get()
         {
-            var entityList = await _repository.SelectAsync();
+            var entityList = await _repositoryExchange.SelectAllRelationAsync();
             return _mapper.Map<IEnumerable<ExchangeResponseDto>>(entityList);
         }
     }

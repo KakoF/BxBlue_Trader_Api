@@ -20,11 +20,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Implementations\" />
-  </ItemGroup>
-
-
-  <ItemGroup>
     <ProjectReference Include="..\PokeTrader.Domain\PokeTrader.Domain.csproj" />
   </ItemGroup>
 

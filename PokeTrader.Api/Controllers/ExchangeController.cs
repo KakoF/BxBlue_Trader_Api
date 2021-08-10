@@ -34,5 +34,20 @@ namespace PokeTrader.Api.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, new ApiErrorResponse((int)HttpStatusCode.InternalServerError, e.Message));
             }
         }
+        [HttpGet]
+        public async Task<ActionResult> Get()
+        {
+            try
+            {
+                var result = await _service.Get();
+                if (result != null)
+                    return Ok(new { message = "Registros encontrados", data = result });
+                return BadRequest();
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, new ApiErrorResponse((int)HttpStatusCode.InternalServerError, e.Message));
+            }
+        }
     }
 }

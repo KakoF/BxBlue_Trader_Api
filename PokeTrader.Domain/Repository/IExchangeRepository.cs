@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PokeTrader.Domain.Repository
 {
-    interface IExchange
+    public interface IExchangeRepository
     {
-        void InsertAsync(ExchangeEntity entity);
-        Task<List<ExchangeEntity>> SelectAsync();
+        //void InsertAsync(ExchangeEntity entity);
+        Task<List<ExchangeEntity>> SelectAllRelationAsync();
     }
 }
