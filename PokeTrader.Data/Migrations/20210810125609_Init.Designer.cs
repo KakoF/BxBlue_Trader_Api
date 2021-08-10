@@ -10,7 +10,7 @@ using PokeTrader.Data.Context;
 namespace PokeTrader.Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210810103353_Init")]
+    [Migration("20210810125609_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,9 +66,8 @@ namespace PokeTrader.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("PokemonId")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("PokemonId")
+                        .HasColumnType("integer");
 
                     b.Property<int>("TraderId")
                         .HasColumnType("integer");

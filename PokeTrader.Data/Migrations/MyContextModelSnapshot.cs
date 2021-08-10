@@ -64,9 +64,8 @@ namespace PokeTrader.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("PokemonId")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("PokemonId")
+                        .HasColumnType("integer");
 
                     b.Property<int>("TraderId")
                         .HasColumnType("integer");

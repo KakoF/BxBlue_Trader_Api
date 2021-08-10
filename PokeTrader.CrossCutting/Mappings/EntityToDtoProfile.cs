@@ -15,7 +15,9 @@ namespace PokeTrader.CrossCutting.Mappings
             CreateMap<PokemonCreateDto, PokemonEntity>().ReverseMap();
             CreateMap<TraderCreateDto, TraderEntity>().ReverseMap();
             CreateMap<ExchangeResponseDto, ExchangeEntity>().ReverseMap();
-            
+            CreateMap<PokemonResponseDto, PokemonEntity>().ReverseMap();
+            CreateMap<TraderResponseDto, TraderEntity>().ReverseMap();
+
         }
     }
 }

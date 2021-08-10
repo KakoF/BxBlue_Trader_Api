@@ -59,7 +59,7 @@ namespace PokeTrader.Data.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreateAt = table.Column<DateTime>(nullable: true),
                     UpdateAt = table.Column<DateTime>(nullable: true),
-                    PokemonId = table.Column<string>(nullable: false),
+                    PokemonId = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     BaseExperience = table.Column<int>(nullable: false),
                     Url = table.Column<string>(nullable: false),
