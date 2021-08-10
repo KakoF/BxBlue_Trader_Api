@@ -25,7 +25,7 @@ namespace PokeTrader.Service.Services
 
             HttpResponseMessage response = await _httpClient.GetAsync(endpointPath);
             if (!response.IsSuccessStatusCode)
-                throw new Exception("Erro ao realizar a solicitação");
+                throw new Exception("Pokemon não encontrado!");
             return await response.Content.ReadAsStringAsync();
         }
     }

@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PokeTrader.Api.Helpers.Middleware;
 using PokeTrader.CrossCutting.DependencyInjection;
 using PokeTrader.CrossCutting.Mappings;
 
@@ -44,6 +45,10 @@ namespace PokeTrader.Api
                 cfg.AddProfile(new ModelToEntityProfile());
             });
             IMapper mapper = config.CreateMapper();
+            services.AddControllers(options => options.Filters.Add<ValidationMiddleware>())
+                .AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+                .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
             services.AddSingleton(mapper);
             services.AddSwaggerGen(c =>
             {
