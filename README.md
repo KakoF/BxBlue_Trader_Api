@@ -1,6 +1,6 @@
-# Boilerplate .Net Core 3.1
+# Projeto em .Net Core 3.1
 
-Api em .Net contemplando:
+Api em .Net contemplando (1 projeto webapi e 4 bibliotecas de classes):
 
 - Arquitetura DDD
 - IoC
