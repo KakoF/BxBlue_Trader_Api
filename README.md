@@ -13,8 +13,8 @@ Api em .Net contemplando (1 projeto webapi e 4 bibliotecas de classes):
 ## Instalar dependências e executar a API
 
 ```python
-- Na raiz da solution executar dotnet restore e dotnet build
-- Para rodar a api executar dotnet watch run na solucão PokeTrader.Api
+Na raiz da solution executar <dotnet restore> e <dotnet build>
+Para rodar a api executar <dotnet watch run> na solucão PokeTrader.Api
 ```
 
 ## Swagger
