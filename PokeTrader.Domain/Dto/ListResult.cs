@@ -7,10 +7,10 @@ namespace PokeTrader.Domain.Dto
 {
     public class ListResult<T>
     {
-        public ListResult(IEnumerable<T> results)
+        public ListResult(IEnumerable<T> results, long count)
         {
             Results = results;
-            Count = results.Count();
+            Count = count;
         }
         public IEnumerable<T> Results { get; private set; }
         public long? Count { get; private set; }

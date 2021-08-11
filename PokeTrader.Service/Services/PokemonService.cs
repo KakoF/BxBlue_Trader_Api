@@ -21,10 +21,10 @@ namespace PokeTrader.Service.Services
             var data = await _request.GetRequest($"pokemon/{id}");
             return JsonConvert.DeserializeObject<PokemonDto>(data);
         }
-        public async Task<IEnumerable<PokemonDto>> Get(int offset = 0, int limit = 20)
+        public async Task<ListResult<PokemonDto>> Get(int offset = 0, int limit = 20)
         {
             var data = await _request.GetRequest($"pokemon?offset={offset}&limit={limit}");
-            return JsonConvert.DeserializeObject<ListResult<PokemonDto>>(data).Results;
+            return JsonConvert.DeserializeObject<ListResult<PokemonDto>>(data);
         }
 
        

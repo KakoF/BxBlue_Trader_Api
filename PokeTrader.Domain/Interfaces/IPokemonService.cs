@@ -1,4 +1,5 @@
-﻿using PokeTrader.Domain.Dto.Pokemon;
+﻿using PokeTrader.Domain.Dto;
+using PokeTrader.Domain.Dto.Pokemon;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,6 @@ namespace PokeTrader.Domain.Interfaces
     public interface IPokemonService
     {
         Task<PokemonDto> Get(int id);
-        Task<IEnumerable<PokemonDto>> Get(int offset, int limit);
+        Task<ListResult<PokemonDto>> Get(int offset, int limit);
     }
 }

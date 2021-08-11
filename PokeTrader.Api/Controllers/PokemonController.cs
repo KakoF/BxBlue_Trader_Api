@@ -24,7 +24,7 @@ namespace PokeTrader.Api.Controllers
             try
             {
                 var result = await _service.Get(offset.Value, limit.Value);
-                return Ok(result);
+                return Ok(new { message = "Registros encontrados", data = result });
             }
             catch(Exception e)
             {
@@ -39,7 +39,7 @@ namespace PokeTrader.Api.Controllers
             try
             {
                 var result = await _service.Get(id);
-                return Ok(result);
+                return Ok(new { message = "Registro encontrado", data = result });
             }
             catch (Exception e)
             {
