@@ -19,7 +19,7 @@ namespace PokeTrader.Api.Controllers
             _service = service;
         }
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery()] int? offset = 20, int? limit = 0)
+        public async Task<IActionResult> Get([FromQuery()] int? offset = 0, int? limit = 20)
         {
             try
             {

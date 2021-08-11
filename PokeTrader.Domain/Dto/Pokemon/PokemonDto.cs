@@ -15,6 +15,8 @@ namespace PokeTrader.Domain.Dto.Pokemon
     public string Name { get; set; }
     [JsonProperty("types")]
     public IEnumerable<PokemonTypeDto> Types { get; set; }
+    [JsonProperty("url")]
+    public string Url { get; set; }
     [JsonProperty("sprites")]
     public PokemonSpriteDto Sprites { get; set; }
   }
