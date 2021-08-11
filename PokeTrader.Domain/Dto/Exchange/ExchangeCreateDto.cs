@@ -10,6 +10,5 @@ namespace PokeTrader.Domain.Dto.Exchange
         public TraderCreateDto TraderOne { get; set; }
 
         public TraderCreateDto TraderTwo { get; set; }
-
     }
 }

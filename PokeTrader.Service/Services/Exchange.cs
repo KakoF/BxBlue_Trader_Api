@@ -40,7 +40,7 @@ namespace PokeTrader.Service.Services
                     var get = await _service.Get(pokemon.PokemonId);
                     pokemon.Name = get.Name;
                     pokemon.BaseExperience = get.BaseExperience;
-                    pokemon.Url = get.Sprites.BackDefault;
+                    pokemon.Url = get.Sprites.FrontDefault;
                     pokemon.CreateAt = DateTime.UtcNow;
                 }
                 foreach (var pokemon in model.TraderTwo.Pokemons)
@@ -48,7 +48,7 @@ namespace PokeTrader.Service.Services
                     var get = await _service.Get(pokemon.PokemonId);
                     pokemon.Name = get.Name;
                     pokemon.BaseExperience = get.BaseExperience;
-                    pokemon.Url = get.Sprites.BackDefault;
+                    pokemon.Url = get.Sprites.FrontDefault;
                     pokemon.CreateAt = DateTime.UtcNow;
                 }
                 CalcularCriterio(model.TraderOne.Pokemons.Sum(x => x.BaseExperience), model.TraderTwo.Pokemons.Sum(x => x.BaseExperience));

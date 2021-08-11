@@ -7,7 +7,7 @@ namespace PokeTrader.Domain.Dto.Pokemon
 {
     public class PokemonSpriteDto
     {
-        [JsonProperty("back_default")]
-        public string BackDefault { get; set; }
+        [JsonProperty("front_default")]
+        public string FrontDefault { get; set; }
     }
 }
