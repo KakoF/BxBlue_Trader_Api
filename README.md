@@ -30,3 +30,8 @@ Foi adicionado a documentação com swagger para simplificar e testar o consumo 
 ```python
 https://www.udemy.com/course/aspnet-core-22-c-api-com-arquitetura-ddd-na-pratica/
 ```
+
+## Heroku
+Banco postgre e aplicação estão no servidor no Heroku:
+https://poketraderbxapi.herokuapp.com/index.html
+
