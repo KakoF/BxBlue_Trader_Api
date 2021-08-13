@@ -68,7 +68,7 @@ namespace PokeTrader.Service.Services
         private void CalcularCriterio(int v1, int v2)
         {
             var calculo = (v1 - v2);
-            if ((v1 - v2) > 30 || (v1 - v2) < -30)
+            if ((v1 - v2) > 100 || (v1 - v2) < - 100)
             {
                 throw new Exception("Troca não é justa!");
             }

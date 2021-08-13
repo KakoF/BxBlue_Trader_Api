@@ -5,6 +5,7 @@ using PokeTrader.Domain.Entities;
 using PokeTrader.Domain.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,7 +22,7 @@ namespace PokeTrader.Data.Implementations
 
         public Task<List<ExchangeEntity>> SelectAllRelationAsync()
         {
-            return _dataset.Include(c => c.TraderOne).ThenInclude(a => a.Pokemons).Include(c => c.TraderTwo).ThenInclude(b => b.Pokemons).ToListAsync(); //.Include(c => c.TraderOne).ThenInclude(a => a.Pokemons).ToListAsync();
+            return _dataset.OrderByDescending(date => date.CreateAt).Include(c => c.TraderOne).ThenInclude(a => a.Pokemons).Include(c => c.TraderTwo).ThenInclude(b => b.Pokemons).ToListAsync(); //.Include(c => c.TraderOne).ThenInclude(a => a.Pokemons).ToListAsync();
         }
     }
 }
